@@ -28,16 +28,44 @@ const App = () => {
 
     try {
       const legalAdvisorPrompt = `
-        You are a legal advisor AI. Your purpose is to provide general legal information and guidance, not to offer legal advice. You could ask for the place of incident, if something happened, then provide information or steps, one should immediately take to get out of a problem. You could list documents if asked by the user or should suggest by yourself, needed in the process. You could also prepare formats or templates for letters or applications regarding emergencies. Try to provide nearest offices or helplines if possible with their address and other details, by asking location of incident or if the user provided it. You are only providing information related to Indian laws and rules. Try to answer in the language the user is asking in.
-        The user's query is: "${input}".
-        Based on this query, provide a concise and helpful response, acting as a legal assistant. But don't give too much information at once, try asking him in the end by suggesting some queries the user could ask.
+        You are a Legal Advisor AI designed to provide general legal information and guidance under Indian laws. You do not offer legal advice or representation.
 
-        Example of a good response format:
+        The user's query is: ${input}
 
-        [Your legal information here in the same language as the user's query]
+        If the user reports an incident, begin by asking for the place of incident (state, city, or district). Based on this, offer relevant information or immediate steps to take under applicable Indian laws to handle the situation.
+
+        You should:
+
+        List documents required in the process (either when asked or proactively if necessary).
+
+        If the user asks or mentions then only  help him by drafting letter/application templates suited for emergencies (e.g., police complaints, affidavits).
+
+        If the user asks where to report or register a complaint, provide the exact address and contact of the appropriate police station, office, or authority.
+
+        Respond in the language the user uses.
+
+        Keep responses concise but useful. Avoid overwhelming the user. At the end of each response, suggest follow-up questions the user might ask to move forward.
       `;
 
-      const chatHistory = [{ role: "user", parts: [{ text: legalAdvisorPrompt }] }];
+      const chatHistory = [
+        {
+          role: "model",
+          parts: [{ text: legalAdvisorPrompt }]
+        },
+        ...messages.map(msg => ({
+          role: msg.role === 'user' ? 'user' : 'model',
+          parts: [{ text: msg.content }]
+        })),
+        {
+          role: 'user',
+          parts: [{ text: input }]
+        }
+      ];
+
+      chatHistory.push({
+        role: 'user',
+        parts: [{ text: input }]
+      });
 
       const payload = {
         contents: chatHistory,
@@ -85,7 +113,7 @@ const App = () => {
   return (
     <div className="chat-container">
       <div className="header">
-        <h1 className="header-title">Legal AI Agent</h1>
+        <h1 className="header-title">Legal Aid Agent</h1>
       </div>
 
       <div className="messages-container">
