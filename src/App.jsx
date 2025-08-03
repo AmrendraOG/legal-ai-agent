@@ -85,7 +85,7 @@ const App = () => {
   return (
     <div className="chat-container">
       <div className="header">
-        <h1 className="header-title">Legal Advisor Agent</h1>
+        <h1 className="header-title">Legal AI Agent</h1>
       </div>
 
       <div className="messages-container">
