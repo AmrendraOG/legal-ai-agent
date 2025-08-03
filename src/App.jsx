@@ -1,6 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Bot, User, Loader2 } from 'lucide-react';
 import './App.css';
+import { RiRobot2Fill } from "react-icons/ri";
+import { FaUser } from "react-icons/fa6";
+import { BsSendFill } from "react-icons/bs";
+import { FaSpinner } from 'react-icons/fa';
 import ReactMarkdown from 'react-markdown';
 
 const App = () => {
@@ -88,7 +91,7 @@ const App = () => {
       <div className="messages-container">
         {messages.length === 0 && (
           <div className="empty-state">
-            <Bot size={72} color="#385F71" style={{ marginBottom: '12px' }} />
+            <RiRobot2Fill size={72} color="#385F71" style={{ marginBottom: '12px' }} />
             <p className="empty-state-text">Please ask your legal-related queries here.</p>
           </div>
         )}
@@ -100,7 +103,7 @@ const App = () => {
           >
             {msg.role === 'assistant' && (
               <div className="avatar avatar-bot">
-                <Bot size={18} />
+                <RiRobot2Fill size={18} />
               </div>
             )}
 
@@ -112,7 +115,7 @@ const App = () => {
 
             {msg.role === 'user' && (
               <div className="avatar avatar-user">
-                <User size={18} />
+                <FaUser size={18} />
               </div>
             )}
           </div>
@@ -121,10 +124,10 @@ const App = () => {
         {isLoading && (
           <div className="loading-message">
             <div className="avatar avatar-bot">
-              <Bot size={18} />
+              <RiRobot2Fill size={18} />
             </div>
             <div className="loading-bubble">
-              <Loader2 size={24} color="#6b7280" className="loading-spinner" />
+              <FaSpinner size={24} color="#6b7280" className="loading-spinner" />
             </div>
           </div>
         )}
@@ -146,7 +149,7 @@ const App = () => {
           disabled={isLoading}
           className={`send-button ${isLoading ? 'send-button-disabled' : 'send-button-enabled'}`}
         >
-          <Send size={20} color='#385F71' />
+          <BsSendFill size={20} color='#385F71' />
         </button>
       </div>
     </div>
