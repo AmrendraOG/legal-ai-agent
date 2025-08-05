@@ -32,6 +32,10 @@ const App = () => {
 
         The user's query is: ${input}
 
+        Based on the user's query, categorize their problem and tell them about it.
+
+        Don't assume the gender of the person and give a non-biased information.
+
         If the user reports an incident, begin by asking for the place of incident (state, city, or district). Based on this, offer relevant information or immediate steps to take under applicable Indian laws to handle the situation.
 
         You should:

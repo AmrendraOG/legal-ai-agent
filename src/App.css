@@ -36,6 +36,7 @@
   padding: 16px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 16px;
 }
 
@@ -92,7 +93,7 @@
 .message-bubble {
   padding: 12px;
   border-radius: 12px;
-  max-width: 80%;
+  max-width: 60%;
   word-break: break-words;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
@@ -143,7 +144,7 @@
   overflow: hidden;
   max-height: 200px;
   font-family: inherit;
-  font-size: 16px;
+  font-size: 14px;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
@@ -177,31 +178,21 @@
   cursor: not-allowed;
 }
 
-.message-content h1,
-.message-content h2,
-.message-content h3,
-.message-content h4,
-.message-content h5,
-.message-content h6 {
-  line-height: 0.5;
-}
-
-.message-content p {
-  line-height: 1;
-}
-
 .message-content ul,
 .message-content ol {
-  line-height: 0.5;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  padding-left: 14px;
 }
 
 .message-content li {
-  line-height: 1.5;
+  margin-bottom: 8px;
 }
 
 .message-content {
-  padding-left: 10px;
-  white-space: pre-wrap;
+  font-size: 14px;
+  white-space: normal;
+  line-height: 1.5;
 }
 
 .loading-spinner {
