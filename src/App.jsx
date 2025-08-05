@@ -117,7 +117,7 @@ const App = () => {
   return (
     <div className="chat-container">
       <div className="header">
-        <h1 className="header-title">Legal Aid Agent</h1>
+        <h1 className="header-title">JusticeBot</h1>
       </div>
 
       <div className="messages-container">
